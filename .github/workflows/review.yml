@@ -13,6 +13,7 @@ jobs:
                 name: sachin-artifact
                 path: sachin.txt
     downloadart:
+        needs: createart
         runs-on: ubuntu-latest
         steps: 
          - name: download artifacts
