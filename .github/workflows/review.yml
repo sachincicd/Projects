@@ -6,19 +6,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
          - name: Create Artifacts 
-           run: echo "This is first part" > sachin.txt
-         - name: uploadartifacts
-           uses: actions/upload-artifact@v4
-           with:
-                name: sachin-artifact
-                path: sachin.txt
-    downloadart:
-        needs: createart
-        runs-on: ubuntu-latest
-        steps: 
-         - name: download artifacts
-           uses: actions/download-artifact@v4
-           with:
-             name: sachin-artifact
-         - name: display artifacts 
-           run: cat sachin.txt
+           run: echo "This is first part" + ${{ vars.Username }} + "" + ${{secrets.password}} > sachin.txt
+         
