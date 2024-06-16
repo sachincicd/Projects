@@ -1,10 +1,13 @@
 name: createartifacts
 on: push
-
+env:
+  FileName: Sachin
 jobs:
     createart:
         runs-on: ubuntu-latest
         steps:
          - name: Create Artifacts 
-           run: echo "This is first part" + ${{ vars.Username }} + "" + ${{secrets.password}} > sachin.txt
-         
+           run: echo This is username ${{ vars.Username }} and password encrypted ${{secrets.password}} > $FileName.txt
+         - name: Display Files
+           run: cat $FileName.txt
+                    
